@@ -1,0 +1,38 @@
+ {% extends "base.html" %}
+
+  {%block content %}
+  {% load static %}
+  <div class="container-15 w-container boxshadow">
+    <div class="dashboard">
+      <div class="columns-9 w-row">
+        <div class="w-col w-col-6">
+          <div class="text-block-22">Delivery location</div>
+        </div>
+        <div class="column-25 w-col w-col-6">
+          <div class="text-block-22">Products will be delivered in <br><br><span>Sorry No products ordered</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-14 w-container " onclick ="initMap();">
+    <div class="map w-widget w-widget-map trackingmap"></div>
+  </div>
+
+  <script>
+      function initMap() {
+        var myLatLng =  {lat: -1.295160, lng:36.806701};
+        var map = new google.maps.Map(document.getElementsByClassName('trackingmap')[0], {
+          zoom: 20,
+          center: myLatLng,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        });
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      };
+      
+    </script>
+    <script type="text/javascript">initMap();</script>
+{%endblock%}

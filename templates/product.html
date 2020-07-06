@@ -1,0 +1,115 @@
+  {% extends "base.html" %}
+
+  {%block content %}
+  {% load static %}
+  
+  <div class="container-8 w-container boxshadow">
+    <div class="breadcrumbs fix"><img src="/static/images/baseline_home_black_18dp.png" width="26" alt="" class="image-8"><a href="#" class="link-3">home</a><img src="blob:https://webflow.com/cb78969a-91f2-4be4-b6a8-0a40c52816c0" alt=""><img src="/static/images/baseline_chevron_right_black_18dp.png" width="30" alt="" class="image-9"><a href="/products/{{item.category.id}}/" class="link-3">{{item.category.name}}</a></div>
+    
+
+  </div>
+  <div class="container-9 w-container">
+    <h3 class="heading-4">{{item}}</h3>
+    <div class="columns-4 w-row">
+      <div class="w-col w-col-6">
+        <div class="pictureside"><img src="/static/products/{{item.image}}" width="237" alt="" class="image-11"></div>
+      </div>
+      <div class="column-9 w-col w-col-6">
+        <div class="cartoptions">
+          <div class="columns-5 w-row">
+            <div class="w-col w-col-6">
+              <div class="text-block-6"><strong>Price :</strong> {{item.price}} <br><strong><br>FREE SHIPPING<br></strong><br></div>
+            </div>
+            <div class="w-col w-col-6">
+              
+            </div>
+          </div>
+        </div>
+        <div class="w-form">
+          <form id="email-form-2" name="email-form-2" data-name="Email Form 2"><select id="field" name="field" class="select-field w-select"><option value="">{{item.name}}</option></select>
+            <div class="columns-6 w-row">
+              <div class="column-6 w-col w-col-4"><input type="number" class="text-field-2 w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="0" id="field-2" required="">
+                <div class="text-block-7">Quantiy in Cart</div>
+              </div>
+              <div class="column-7 w-col w-col-4"><a href="#" class="button-3 w-button">Add to wish list</a></div>
+              <div class="column-8 w-col w-col-4"><a href="#" class="button-3 w-button">Add to Cart</a></div>
+            </div>
+          </form>
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-10 w-container">
+    <div class="topdiv">
+      <div class="text-block-8 tableheaders">Product reviews</div>
+    </div>
+    <div class="bottomdiv">
+      <h3 class="heading-5">No product reviews</h3>
+      <div class="text-block-9">Be the first to rate this <span>item</span></div>
+      <div data-w-id="afc79440-6fb5-ede0-19b0-c029c982bd85" class="cartpopup">
+        <div>
+          <div class="div-block-2"><img src="images/baseline_close_black_18dp.png" data-w-id="afc79440-6fb5-ede0-19b0-c029c982bd88" alt="" class="image-14">
+            <div class="text-block-13 tableheaders"><strong>Shopping Cart</strong></div>
+          </div>
+          <h1 class="heading-6 tableheaders">Proceed to checkout as soon as you&#x27;re ready.<br></h1>
+        </div>
+        <ul class="w-list-unstyled">
+          <li>
+            <div class="itemcartpopup">
+              <div class="itempopupcart w-row">
+                <div class="column-22 w-col w-col-4"><img src="images/71lXNFifsgL._SY550_.jpg" width="46" alt="" class="image-15"></div>
+                <div class="w-col w-col-4">
+                  <div class="form-block w-form">
+                    <form id="email-form-3" name="email-form-3" data-name="Email Form 3" class="form-2"><input type="number" class="text-field-4 w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="1" id="field-2" required=""></form>
+                    <div class="w-form-done">
+                      <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div class="w-form-fail">
+                      <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
+                  </div><a href="#" class="button-6 w-button">Remove </a></div>
+                <div class="w-col w-col-4">
+                  <div class="text-block-16">KSH 3500</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="div-block-3 div-block-4 div-block-5 div-block-6 div-block-7 div-block-8 div-block-9 div-block-10 div-block-11 div-block-12">
+          <div class="w-row">
+            <div class="w-col w-col-6"><a href="#" class="button-7 button-8 button-9 button-10 button-11 button-12 button-13 button-14 button-15 button-16 button-17 button-18 button-19 button-20 w-button">Checkout</a></div>
+            <div class="column-21 w-col w-col-6">
+              <div class="text-block-17 text-block-18 text-block-19 text-block-20 text-block-21 tableheaders">KSH 13500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script >
+    document.getElementsByClassName('cartpopup')[0].style.display="none";
+
+    function showcart(){
+  
+  document.getElementsByClassName('cartpopup')[0].style.display="block";
+}
+
+<div>
+</script>
+
+<script type="text/javascript">
+  
+  <script type="text/javascript">
+
+    function AjaxAdd(id) {
+        $.ajax({
+            url: "/add_to_cart_ajax/"+id,
+            success: function(response) {alert(response);},
+            error: function() {alert("Couldn't remove item");}  
+        })
+        
+</script>
+</script>
+  {%endblock%}

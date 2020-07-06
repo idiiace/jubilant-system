@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{%block content %}
+{% load static %}
+
+
+<div class="container-18 w-container">
+    <div class="loginform boxshadow">
+
+        <div class="form-block-3 w-form">
+            <form id="email-form-2" name="email-form-2" method="POST" action="/verifycode/">
+                <label for="email" class="field-label-3 one">Verification</label>
+                {% csrf_token %}
+                <label for="email-2" class="field-label-3">Enter the six digit verification code send to
+                    <br>your phone </label>
+                <input type="text" class="text-field-8 w-input" maxlength="256" name="code" data-name="Email" id="email" required="">
+                <input type="submit" value="Complete Registration" class="submit-button-3 w-button">
+            </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

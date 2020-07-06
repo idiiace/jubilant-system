@@ -1,0 +1,74 @@
+  {% extends "base.html" %}
+
+  {%block content %}
+  {% load static %}
+
+
+<div class="w-container">
+    
+
+    <div class="loginform1 boxshadow">
+        <div class="text-block-25">Sign up
+            <br>‍‍</div>
+        <div class="w-form">
+            <form id="email-form-2" name="loginform">
+                {% csrf_token %}
+                <label for="name-3" class="enterphonefield">Enter Phone Number </label>
+                <input type="text" id="name-3" name="phonenumber" data-name="Name 3" maxlength="256" class="text-field-13 w-input">
+                <div id="hidverification" style="display:none">
+                <label for="name-4" class="enterphonefield verificationfield">Enter the verification code sent your phone</label>
+                <input type="email" class="text-field-12 w-input" maxlength="256" name="email" data-name="Email" id="email" required="">
+            </div>
+                <div id="hidverification2" style="display:none">
+
+                <input type="submit" value="Verify" data-wait="Please wait..." class="submit-button-5 sendverication w-button">
+                </div>
+                <div id="hidverification3">
+                <input type="button"  value="Request verfication code" class="submit-button-5 sendverication w-button" onclick="controlsignup()">
+                </div>
+            </form>
+ 
+        </div>
+        <div class="text-block-24">Request another Verification Code  <span class="text-span">5 min</span></div>
+    </div>
+</div>
+<form action="/verificationcode/" id="getverification" method="POST">
+        {% csrf_token %}
+    <input type="hidden" id="custId" name="phonenumber" value="3487">
+    </form>
+
+
+<script type="text/javascript">
+    
+
+    
+    function controlsignup(){
+        a=document.getElementsByName('phonenumber')[0].value;
+        document.getElementById('custId').value = a;
+
+    var csrf_token=document.getElementsByName('csrfmiddlewaretoken')[0].value;
+    var postData = {'csrfmiddlewaretoken':csrf_token,'phonenumber':a}
+      $.ajax({
+            type: "POST",
+            url: "/verificationcode/",
+            data: postData,
+            contentType: "application/x-www-form-urlencoded",
+            success: function(responseData, textStatus, jqXHR) {
+                if (responseData=='successful'){
+                    document.getElementById("hidverification").style.display="block";
+                    document.getElementById("hidverification2").style.display="block";
+                    document.getElementById("hidverification3").style.display="none";
+
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        })
+  }
+
+
+
+
+</script>
+{%endblock%}

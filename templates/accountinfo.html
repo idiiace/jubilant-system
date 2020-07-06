@@ -1,0 +1,67 @@
+  {% extends "base.html" %}
+
+  {%block content %}
+  {% load static %}
+
+  <div class="w-container boxshadow">
+    <div class="accountinfo-dashboard">
+      <h2 class="heading-9">Welcome {{user.username}}</h2>
+    </div>
+  </div>
+  <div class="tabswrapper w-container boxshadow">
+    <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
+      <div class="tabs-menu w-tab-menu">
+        <a data-w-tab="Orders" class="tab-link-orders default w-inline-block w-tab-link w--current">
+          <div class="defaulttext1">Orders</div>
+        </a>
+        <a data-w-tab="In cart" class="tab-link-in-cart default w-inline-block w-tab-link">
+          <div class="defaulttext1">Purchase History</div>
+        </a>
+        <a data-w-tab="Contactinfomation" class="tab-link-contactinfomation w-inline-block w-tab-link">
+          <div class="defaulttext1">Account Infomation</div>
+        </a>
+      </div>
+      <div class="w-tab-content">
+        <div data-w-tab="Orders" class="tab-pane-orders tabpaneall w-tab-pane w--tab-active">
+          <h1 class="heading-10">No order history found</h1>
+        </div>
+        <div data-w-tab="In cart" class="tab-pane-orders w-tab-pane">
+          <h1 class="heading-10">No Purchase history found</h1>
+        </div>
+        <div data-w-tab="Contactinfomation" class="tab-pane-orders w-tab-pane">
+          <div class="w-form">
+            <form id="email-form-2" name="email-form-2" data-name="Email Form 2">
+              <div class="columns-10 w-row">
+                
+                {% if user.is_authenticated %}
+
+                <div class="column-27 w-col w-col-6">
+                  <label for="email" class="field-label-5">FIrst Name</label>
+                  <label for="name-3" class="field-label-6">Second Name</label>
+                  <label for="name-4" class="field-label-6">Phonenumber </label>
+                  <label for="name-4" class="field-label-6">Address </label></div>
+                <div class="column-26 w-col w-col-6">
+                  <input type="email" class="text-field-14 w-input" maxlength="256" value="{{v.0.first_name}}" name="email" data-name="Email" id="email" required="">
+                  <input type="text" id="name-3" name="name-3" data-name="Name 3" maxlength="256" value="{{v.0.last_name}}" class="text-field-15 w-input">
+                  <input type="text" id="name-3" name="name-3" data-name="Name 3" maxlength="256" class="text-field-15 w-input" value="{{v.0.email}}">
+                  <input type="text" id="name-3" name="name-3"  data-name="Name 3" maxlength="256" class="text-field-15 w-input"></div>
+                {% endif %}
+              </div>
+              <div class="div-block-14"><input type="submit" value="Update Account Info" data-wait="Please wait..." class="submit-button-6 w-button"></div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script >
+    document.getElementsByClassName('cartpopup')[0].style.display="none";
+
+    function showcart(){
+  
+  document.getElementsByClassName('cartpopup')[0].style.display="block";
+}
+
+  </script>
+ {% endblock %}

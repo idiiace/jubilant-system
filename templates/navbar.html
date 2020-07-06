@@ -1,0 +1,100 @@
+{% load static %}
+
+  <div class="topnavbar">
+    <div class="innerpromo">
+      <div class="columns w-row">
+        <div class="column-2 w-col w-col-6"><a href="#" class="link2 anotherlinkleft">You are not signed it sign it</a></div>
+        <div class="column w-col w-col-6"><a href="#" class="link2">Dont have an account sign up </a></div>
+      </div>
+    </div>
+  </div>
+  <div class="second">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="column-23 w-col w-col-1"><a href="/"><img src="{% static 'images/BULC.png' %}" width="75" alt="" class="image"></a></div>
+        <div class="w-col w-col-2">
+          <div class="w-row">
+            <div class="twocolumswatch w-col w-col-6"><a href="/orderandtracking/" class="link">Orders &amp;<br>Tracking</a></div>
+            <div class="twocolumswatch w-col w-col-6"><img src="{% static 'images/bus.png'%}" alt="" class="image-16"></div>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="w-form">
+            <form id="email-form" name="email-form" data-name="Email Form" class="form w-clearfix"><input type="text" class="text-field w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Search by item" id="name-2"><input type="submit" value="SEARCH" data-wait="Please wait..." class="submit-button w-button"></form>
+
+          </div>
+        </div>
+        <div onclick="window.location='/cart';" class="columsymbols w-col w-col-1"><img src="{% static 'images/cart.png' %}" width="18" data-w-id="8b0d3f28-b918-923a-04ca-c83b29d57ba6" alt="" class="image-2" data-ix="new-interaction" >
+          <div  class="helptext">Cart</div>
+        </div>
+        <div class="columsymbols w-col w-col-1"><img src="{% static 'images/help.png' %}" alt="" class="image-17">
+          <div class="helptext">help</div>
+        </div>
+        <div class="columsymbols w-col w-col-1">
+          <div data-delay="0" class="w-dropdown">
+            <div class="dropdown-toggle w-dropdown-toggle"><img src="{% static 'images/account.png' %}" width="10" alt="" class="image-19"></div>
+
+            <nav class="dropdown-list w-dropdown-list">
+            
+                {% if user.is_authenticated %}
+
+                    <a href="/account/" class="dropdown-link w-dropdown-link">Account info</a>
+                    <a href="/signout" class="dropdown-link-2 w-dropdown-link">Signout</a></nav>
+                {% else %}
+                    <a href="/login/" class="dropdown-link-2 w-dropdown-link">Login</a>
+                    <a href="/signup/" class="dropdown-link-2 w-dropdown-link">Signup</a>
+                {% endif %}
+              </nav>
+          </div>
+          <div class="helptext">Account</div>
+        </div>
+      </div>
+      <div  id="megamenu">
+ <nav class="dropdownproducts w-dropdown-list" style="display:none;">
+                <div class="columns-2 w-row">
+                  <div class="idealcolumtop w-col w-col-2">
+                    <div class="wrappercolumnstop"><img src="images/71lXNFifsgL._SY550_.jpg" width="123" alt="" class="image-4">
+                      <div class="productnametop">Ariel</div>
+                    </div>
+                  </div>
+                  <div class="idealcolumtop w-col w-col-2">
+                    <div class="wrappercolumnstop"><img src="images/71lXNFifsgL._SY550_.jpg" width="123" alt="" class="image-4">
+                      <div class="productnametop">Product Name</div>
+                    </div>
+                  </div>
+                  <div class="idealcolumtop w-col w-col-2">
+                    <div class="wrappercolumnstop"><img src="images/71lXNFifsgL._SY550_.jpg" width="123" alt="" class="image-4">
+                      <div class="productnametop">Product Name</div>
+                    </div>
+                  </div>
+                  <div class="idealcolumtop w-col w-col-2">
+                    <div class="wrappercolumnstop"><img src="images/71lXNFifsgL._SY550_.jpg" width="123" alt="" class="image-4">
+                      <div class="productnametop">Product Name</div>
+                    </div>
+                  </div>
+                  <div class="idealcolumtop w-col w-col-2">
+                    <div class="wrappercolumnstop"><img src="images/71lXNFifsgL._SY550_.jpg" width="123" alt="" class="image-4">
+                      <div class="productnametop">Product Name</div>
+                    </div>
+                  </div>
+                  <div class="idealcolumtop w-col w-col-2">
+                    <div class="wrappercolumnstop"><img src="images/71lXNFifsgL._SY550_.jpg" width="123" alt="" class="image-4">
+                      <div class="productnametop">Product Name</div>
+                    </div>
+                  </div>
+                </div>
+</nav>
+</div>
+
+      <div class="div-block-13">
+        <ul class="catergories w-list-unstyled">
+          {% for category  in categories %}
+ 
+
+          <li><a href="/products/{{category.id}}/" class="categorielinks">{{category.name}}</a></li>
+          
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
