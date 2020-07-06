@@ -26,7 +26,7 @@ SECRET_KEY = '#o3=_+r+c!@_-$)3+mxy1l7(jr^-zxprwh#yonhqxhrww81uy)'
 DEBUG = True
 
 #konvergenxanotherproduct.herokuapp.com
-ALLOWED_HOSTS = ['konvergenxanotherproduct.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
